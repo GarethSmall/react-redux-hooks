@@ -1,26 +1,23 @@
 {
     "parser": "babel-eslint",
     "env": {
-        "browser": true,
-        "es6": true
+      "browser": true,
+      "es6": true,
+      "node": true,
+      "jest/globals": true
     },
     "plugins": [
       "flowtype",
       "prettier",
+      "react-hooks",
       "jest",
       "jsx-a11y",
       "react",
       "import"
     ],
-    "extends": ["eslint:recommended", "plugin:flowtype/recommended", "plugin:react/recommended", "prettier/react", "prettier/standard", "prettier/flowtype"],
-    "settings": {
-      "react": {
-        "pragma": "React",
-        "version": "16.5.2",
-        "flowVersion": "0.72.0"
-      }
-    },
+    "extends": ["eslint:recommended", "plugin:flowtype/recommended", "plugin:react/recommended", "plugin:jest/recommended", "prettier/react", "prettier/standard", "prettier/flowtype"],
     "rules": {
+      "react-hooks/rules-of-hooks": "error",
       "flowtype/require-valid-file-annotation": [
           2,
           "always"
@@ -36,8 +33,7 @@
       ],
       "strict": 0,
       "indent": [
-          "error",
-          2
+        2, 2, {"SwitchCase": 1}
       ],
       "linebreak-style": [
           "error",
@@ -51,20 +47,10 @@
           "error",
           "always"
       ],
-      "sort-keys": [1, "asc", {"caseSensitive": true, "natural": true}],
       "import/first": 1,
       "no-else-return": 1,
       "no-nested-ternary": 1,
       "no-confusing-arrow": 1,
       "no-shadow": 1
-  },
-  "globals": {
-    "require": true,
-    "process": true,
-    "expect": true,
-    "it": true,
-    "test": true,
-    "module": true,
-    "__dirname": true
   }
 }

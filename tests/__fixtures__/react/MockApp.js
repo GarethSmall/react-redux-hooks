@@ -1,14 +1,14 @@
 //@flow
 import React from 'react';
 import ReduxProvider from '../../../src/ReduxProvider';
+import { createStore } from 'redux';
+import { mockUserReducer } from '../redux/reducer.mock';
 
-//const store = createStore(mockUserReducer);
-
-//const mockReduxContext = createReduxContext(store);
+const store = createStore(mockUserReducer);
 
 export function MockApp() {
   return (
-    <ReduxProvider>
+    <ReduxProvider store={store}>
       <div>
         hi
       </div>
