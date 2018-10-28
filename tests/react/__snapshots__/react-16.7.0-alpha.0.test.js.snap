@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react-16.7.0-alpha.0.test.js should render 1`] = `
+<MockApp>
+  <ReduxProvider>
+    <div>
+      hi
+    </div>
+  </ReduxProvider>
+</MockApp>
+`;
