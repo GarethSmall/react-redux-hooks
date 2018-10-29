@@ -1,5 +1,8 @@
 // @flow
-import { DefaultReduxStoreKey, ReduxProviderContext } from './ReduxProviderContext';
+import {
+  DefaultReduxStoreKey,
+  ReduxProviderContext,
+} from './ReduxProviderContext';
 import { useReduxProviderContext } from './useReduxProviderContext';
 import { ReduxProvider } from './ReduxProvider';
 import { useReduxStore } from './useReduxStore';

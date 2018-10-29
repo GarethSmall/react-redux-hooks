@@ -9,17 +9,15 @@ import {
 import type { ReduxStoreMap } from './ReduxProviderContext';
 import warnOnCondition from './helpers/warnOnCondition';
 
-type StoreProps =
-  | {
+type Props =
+  | $ReadOnly<{|
+      children : Node | Node[],
       store : Store<any, Action>,
-    }
-  | {
+    |}>
+  | $ReadOnly<{|
+      children : Node | Node[],
       stores : ReduxStoreMap,
-    };
-
-type Props = {
-  children : Node | Node[],
-} & StoreProps;
+    |}>;
 
 /**
  *
@@ -30,25 +28,24 @@ type Props = {
 export function ReduxProvider(props : Props) {
   const { children } = props;
 
+  let storeMap : ?ReduxStoreMap = null;
+
+  if (props.store != null) {
+    /* $FlowFixMe */
+    storeMap = { [DefaultReduxStoreKey]: props.store };
+  }
+
+  if (props.stores != null) {
+    storeMap = props.stores;
+  }
+
   /**
    * If we don't have a store, there isn't much we can do with redux so we warn the user.
    */
   warnOnCondition(
-    this.props.store == null && this.props.stores == null,
+    storeMap == null,
     'Invalid Props: ReduxProvider requires a valid store.',
   );
-
-  let storeMap : ?ReduxStoreMap = null;
-
-  if (this.props.store != null) {
-    /* $FlowFixMe */
-    storeMap = { [DefaultReduxStoreKey]: this.props.store };
-  }
-
-  if (this.props.stores != null) {
-    storeMap = this.props.stores;
-  }
-
   /**
    * If we don't have a store map we return the children
    */

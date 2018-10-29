@@ -47,4 +47,3 @@ export function useReduxState(
     ? defaultReduxStateFunction(reduxState)
     : stateFn(reduxState);
 }
-
