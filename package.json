@@ -7,7 +7,7 @@
   "module": "dist/es/react-redux-hooks.js",
   "files": [
     "dist/umd",
-    "lib",
+    "dist/lib",
     "src",
     "dist/es",
     "dist/flow"
