@@ -20,7 +20,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/lib/react-redux-hooks.js',
+      file: 'dist/lib/redux-react-hooks.js',
       format: 'cjs',
       indent: false,
       globals: {
@@ -44,7 +44,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/es/react-redux-hooks.js',
+      file: 'dist/es/redux-react-hooks.js',
       format: 'es',
       indent: false,
       globals: {
@@ -68,12 +68,12 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/umd/react-redux-hooks.js',
+      file: 'dist/umd/redux-react-hooks.js',
       external: [
         ...Object.keys(pkg.peerDependencies || {}),
       ],
       format: 'umd',
-      name: 'react-redux-hooks',
+      name: 'redux-react-hooks',
       indent: false,
       globals: {
         react: 'React',
@@ -102,9 +102,9 @@ export default [
       ...Object.keys(pkg.peerDependencies || {}),
     ],
     output: {
-      file: 'dist/umd/react-redux-hooks.min.js',
+      file: 'dist/umd/redux-react-hooks.min.js',
       format: 'umd',
-      name: 'react-redux-hooks',
+      name: 'redux-react-hooks',
       indent: false,
       globals: {
         react: 'React',
