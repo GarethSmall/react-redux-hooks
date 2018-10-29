@@ -2,6 +2,7 @@
 
 [include]
 .*/src/**/*.js
+node_modules/react
 
 [libs]
 

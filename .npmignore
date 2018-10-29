@@ -1,5 +1,5 @@
-src
 tests
+example
 .babelrc
 .eslintrc
 .flowconfig

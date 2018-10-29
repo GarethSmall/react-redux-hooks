@@ -1,56 +1,79 @@
 {
-    "parser": "babel-eslint",
-    "env": {
-      "browser": true,
-      "es6": true,
-      "node": true,
-      "jest/globals": true
-    },
-    "plugins": [
-      "flowtype",
-      "prettier",
-      "react-hooks",
-      "jest",
-      "jsx-a11y",
-      "react",
-      "import"
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "plugins": [
+    "flowtype",
+    "prettier",
+    "react-hooks",
+    "jest",
+    "jsx-a11y",
+    "react",
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "prettier/react",
+    "prettier/standard",
+    "prettier/flowtype"
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React",  // Pragma to use, default to "React"
+      "version": "16.7.0-alpha.0", // React version, default to the latest React stable release
+      "flowVersion": "0.72" // Flow version
+    }
+  },
+  "rules": {
+    "flowtype/require-valid-file-annotation": [
+      2,
+      "always"
     ],
-    "extends": ["eslint:recommended", "plugin:flowtype/recommended", "plugin:react/recommended", "plugin:jest/recommended", "prettier/react", "prettier/standard", "prettier/flowtype"],
-    "rules": {
-      "react-hooks/rules-of-hooks": "error",
-      "flowtype/require-valid-file-annotation": [
-          2,
-          "always"
-      ],
-      "flowtype/no-types-missing-file-annotation": 2,
-      "flowtype/space-before-type-colon": [
-          2,
-          "always"
-      ],
-      "flowtype/space-after-type-colon": [
-          2,
-          "always"
-      ],
-      "strict": 0,
-      "indent": [
-        2, 2, {"SwitchCase": 1}
-      ],
-      "linebreak-style": [
-          "error",
-          "unix"
-      ],
-      "quotes": [
-          "error",
-          "single"
-      ],
-      "semi": [
-          "error",
-          "always"
-      ],
-      "import/first": 1,
-      "no-else-return": 1,
-      "no-nested-ternary": 1,
-      "no-confusing-arrow": 1,
-      "no-shadow": 1
+    "flowtype/no-types-missing-file-annotation": 2,
+    "flowtype/space-before-type-colon": [
+      2,
+      "always"
+    ],
+    "flowtype/space-after-type-colon": [
+      2,
+      "always"
+    ],
+    "strict": 0,
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "import/first": 1,
+    "no-else-return": 1,
+    "no-nested-ternary": 1,
+    "no-confusing-arrow": 1,
+    "no-shadow": 1
   }
 }
