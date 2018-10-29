@@ -1,14 +1,17 @@
 //@flow
 import type { MockUser } from './users.mock';
 import { MockActions } from './actions.mock';
-import type { CreateMockUserAction, FetchMockUsersAction } from './actions.mock';
+import type {
+  CreateMockUserAction,
+  FetchMockUsersAction,
+} from './actions.mock';
 
 export type MockUserState = $ReadOnly<{
   users : MockUser[],
-}>
+}>;
 
 export const initialMockUserState : MockUserState = {
-  users : [],
+  users: [],
 };
 
 function mockUserReducer(

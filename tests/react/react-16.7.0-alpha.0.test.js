@@ -11,9 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('react-16.7.0-alpha.0.test.js', () => {
   test('should render', () => {
-    const component = mount(
-      <MockApp />
-    );
+    const component = mount(<MockApp />);
     const tree = toJson(component);
     expect(tree).toMatchSnapshot();
   });

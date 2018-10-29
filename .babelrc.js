@@ -6,7 +6,11 @@
       "corejs": false,
       "helpers": true,
       "regenerator": true,
-      "useESModules": false
-    }]
+      "useESModules": true,
+    }],
+    plugins: [
+      '@babel/proposal-object-rest-spread',
+      NODE_ENV === 'test' && '@babel/transform-modules-commonjs'
+    ].filter(Boolean)
   ]
 }

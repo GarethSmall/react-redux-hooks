@@ -12,7 +12,7 @@ export type MockActionType = $Values<typeof MockActions>;
 export type CreateMockUserAction = {
   type : MockActionType,
   name : string,
-}
+};
 
 /**
  * create a mock user
@@ -41,4 +41,3 @@ export function fetchMockUsers() : FetchMockUsersAction {
     users: mockUsersArray,
   };
 }
-

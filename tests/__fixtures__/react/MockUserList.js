@@ -1,8 +1,12 @@
 //@flow
+import React from 'react';
+import useReduxState from '../../../src/useReduxState';
 
-type Props = {
-
+function MockUserList() {
+  const state = useReduxState(s => ({
+    newUsers: s.users,
+  }));
+  return <div>hi</div>;
 }
 
-function MockUserList(props : Props) {
-}
+export default MockUserList;

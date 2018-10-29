@@ -1,18 +1,36 @@
 //@flow
 import React from 'react';
+/**
+ * TODO: Fix this. This an issue with flow react type defs
+ */
+//$FlowFixMe
 import type { Context } from 'react';
 import type { Store, Action } from 'redux';
 
-export type UniqueReduxStoreKey = string;
-
-export type ReduxProviderContextDefinition = Context<{ [UniqueReduxStoreKey] : Store<any, Action> }>;
-
-export const DefaultReduxStoreKey : UniqueReduxStoreKey = 'UniqueDefaultReduxStoreKey!';
+/**
+ * A key used to identify our redux store in the global ReduxProviderContext
+ */
+export type UniqueReduxStoreKey = Symbol | string;
 
 /**
- * Create a context to use in our provider
+ * The type definition of the map in ReduxProviderContext
+ */
+export type ReduxStoreMap = { [UniqueReduxStoreKey] : Store<any, Action> };
+
+export type ReduxProviderContextDefinition = Context<ReduxStoreMap>;
+
+/**
+ * Default store key
+ * @type {symbol | *}
+ */
+export const DefaultReduxStoreKey : UniqueReduxStoreKey = Symbol(
+  'UniqueDefaultReduxStoreKey!',
+);
+
+/**
+ * Create a global context to store our redux store
  * @returns {{$$typeof, _calculateChangedBits, _currentValue, _currentValue2, Provider, Consumer}}
  */
-const ReduxProviderContext : ReduxProviderContextDefinition =  React.createContext({});
-
-export default ReduxProviderContext;
+export const ReduxProviderContext : ReduxProviderContextDefinition = React.createContext(
+  {},
+);

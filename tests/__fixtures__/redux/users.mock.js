@@ -1,7 +1,7 @@
 //@flow
 export type MockUser = $ReadOnly<{
   name : string,
-}>
+}>;
 
 export const mockUsersArray : MockUser[] = [
   {

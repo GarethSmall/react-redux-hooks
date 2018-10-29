@@ -2,19 +2,38 @@
   "name": "react-redux-hooks",
   "version": "0.5.0",
   "description": "React hooks for using redux in react.",
-  "main": "index.js",
+  "main": "dist/lib/react-redux-hooks.js",
+  "unpkg": "dist/umd/react-redux-hooks.js",
+  "module": "dist/es/react-redux-hooks.js",
+  "files": [
+    "dist/umd",
+    "lib",
+    "src",
+    "dist/es",
+    "dist/flow"
+  ],
   "scripts": {
-    "lint": "eslint --ext .js ./src",
-    "prettier:format": "prettier-eslint './src/**/*.js' --write",
-    "prettier:different": "prettier-eslint './src/**/*.js' --list-different",
+    "lint": "eslint --ext .js ./src ./tests",
+    "prettier:format": "prettier-eslint './src/**/*.js' './tests/**/*.js' --write",
+    "prettier:different": "prettier-eslintt './src/**/*.js' './tests/**/*.js' --list-different",
     "flow": "flow check",
     "test": "cross-env NODE_ENV=test jest",
-    "test:watch": "cross-env NODE_ENV=test jest --watch"
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
+    "build:clean": "rm -rf ./dist",
+    "build:flow": "flow-copy-source -v src dist/flow",
+    "build:rollup": "rollup -c",
+    "check": "npm-run-all lint flow prettier:different",
+    "build": "npm-run-all build:clean build:rollup build:flow",
+    "build:production": "cross-env NODE_ENV=production npm-run-all build:clean build:rollup build:flow"
   },
   "jest": {
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0",
+    "redux": "^4.0.1"
   },
   "repository": {
     "type": "git",
@@ -25,9 +44,12 @@
     "react",
     "redux",
     "javascript",
+    "flux",
+    "reactjs",
+    "react16",
     "hooks"
   ],
-  "author": "Gareth Small",
+  "author": "Gareth Small <gareth.dylan.small@gmail.com> (https://github.com/GarethSmall)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GarethSmall/react-redux-hooks/issues"
@@ -70,6 +92,8 @@
     "redux": "^4.0.1",
     "rollup": "^0.66.6",
     "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-eslint": "^5.0.0",
     "rollup-plugin-flow": "^1.1.1",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-replace": "^2.1.0",
