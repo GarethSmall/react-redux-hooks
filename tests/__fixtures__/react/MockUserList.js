@@ -1,12 +1,20 @@
 //@flow
 import React from 'react';
-import useReduxState from '../../../src/useReduxState';
+import MockUserListItem from './MockUserListItem';
+import type { MockUser } from '../redux/users.mock';
 
-function MockUserList() {
-  const state = useReduxState(s => ({
-    newUsers: s.users,
-  }));
-  return <div>hi</div>;
+type Props = {
+  users : MockUser[],
+}
+function MockUserList(props : Props) {
+  const { users } = props;
+  return (
+    <ul>
+      {users.map((u) => (
+        <MockUserListItem key={u.id} name={u.name} />
+      ))}
+    </ul>
+  );
 }
 
 export default MockUserList;

@@ -29,6 +29,7 @@ function mockUserReducer(
        * @type {{id: number, name: string}}
        */
       const newMockUser : MockUser = {
+        id: '5',
         name: a.name,
       };
 

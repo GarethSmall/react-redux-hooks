@@ -1,25 +1,32 @@
 //@flow
 export type MockUser = $ReadOnly<{
+  id : string,
   name : string,
 }>;
 
 export const mockUsersArray : MockUser[] = [
   {
+    id: '1',
     name: 'Joey Tribbiani',
   },
   {
+    id: '2',
     name: 'Monica Geller',
   },
   {
+    id: '3',
     name: 'Chandler Bing',
   },
   {
+    id:'4',
     name: 'Phoebe Buffay',
   },
   {
+    id: '5',
     name: 'Rachel Green',
   },
   {
+    id: '6',
     name: 'Ross Geller',
   },
 ];

@@ -1,6 +1,6 @@
 {
   "name": "redux-react-hooks",
-  "version": "0.5.0",
+  "version": "0.5.4",
   "description": "React hooks for using redux in react.",
   "main": "dist/lib/redux-react-hooks.js",
   "unpkg": "dist/umd/redux-react-hooks.js",
@@ -68,9 +68,6 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "cross-env": "^5.2.0",
-    "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0",
-    "enzyme-to-json": "^3.3.4",
     "eslint": "^5.7.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.1.1",
@@ -89,7 +86,10 @@
     "prettier-eslint-cli": "^4.7.1",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
+    "react-test-renderer": "^16.7.0-alpha.0",
     "redux": "^4.0.1",
+    "redux-mock-store": "^1.5.3",
+    "regenerator-runtime": "^0.12.1",
     "rollup": "^0.66.6",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
@@ -99,5 +99,7 @@
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-terser": "^3.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "uninstall": "0.0.0"
+  }
 }

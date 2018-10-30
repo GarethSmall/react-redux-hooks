@@ -9,12 +9,11 @@ type Props = {
   name : string,
 };
 
-function MockUserComponent(props : Props) {
+function MockUserListItemComponent(props : Props) {
   const { name } = props;
-
-  return <div>Full Name: {name}</div>;
+  return <li>Full Name: {name}</li>;
 }
 
-const MockUser = memo(MockUserComponent);
+const MockUserListItem = memo(MockUserListItemComponent);
 
-export default MockUser;
+export default MockUserListItem;

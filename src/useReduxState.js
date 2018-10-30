@@ -3,6 +3,10 @@ import type { UniqueReduxStoreKey } from './ReduxProviderContext';
 import type { Action, Store } from 'redux';
 import warnOnCondition from './helpers/warnOnCondition';
 import { useReduxStore } from './useReduxStore';
+/**
+ * $FlowFixMe
+ */
+import { useEffect } from 'react';
 
 /**
  * TODO: add better typing
@@ -37,13 +41,30 @@ export function useReduxState(
    * @type {Store<*, Action>}
    */
   const reduxStore : Store<any, Action> = useReduxStore(storeKey);
-  /**
-   * get the state from the redux store.
-   * @type {*}
-   */
-  const reduxState : Object = reduxStore.getState();
 
-  return isInvalid
-    ? defaultReduxStateFunction(reduxState)
-    : stateFn(reduxState);
+  const selectFn = isInvalid ? defaultReduxStateFunction : stateFn;
+
+  let currentState = reduxStore.getState();
+  let selectedCurrentState = selectFn(currentState);
+  /**
+   * $FlowFixMe
+   */
+  useEffect(() => {
+    function handleChange() {
+      let nextState = reduxStore.getState();
+      let selectedNextState = selectFn(nextState);
+      if (selectedNextState !== selectedCurrentState) {
+        currentState = nextState;
+        selectedCurrentState = selectedNextState;
+      }
+    }
+
+    let unsubscribe = reduxStore.subscribe(handleChange);
+
+    handleChange();
+
+    return unsubscribe;
+  });
+
+  return selectedCurrentState;
 }

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react should render 1`] = `
+Array [
+  <input
+    id="username"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />,
+  <button
+    id="create-users"
+    onClick={[Function]}
+  >
+    Create User
+  </button>,
+  <button
+    id="fetch-users"
+    onClick={[Function]}
+  >
+    Fetch Users
+  </button>,
+  <ul>
+    <li>
+      Full Name: 
+      Joey Tribbiani
+    </li>
+    <li>
+      Full Name: 
+      Monica Geller
+    </li>
+    <li>
+      Full Name: 
+      Chandler Bing
+    </li>
+    <li>
+      Full Name: 
+      Phoebe Buffay
+    </li>
+    <li>
+      Full Name: 
+      Rachel Green
+    </li>
+    <li>
+      Full Name: 
+      Ross Geller
+    </li>
+  </ul>,
+  <div>
+    Yahoo!
+  </div>,
+]
+`;

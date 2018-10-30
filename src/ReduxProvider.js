@@ -1,6 +1,5 @@
 //@flow
 import React from 'react';
-import type { Node } from 'react';
 import type { Store, Action } from 'redux';
 import {
   ReduxProviderContext,
@@ -9,13 +8,16 @@ import {
 import type { ReduxStoreMap } from './ReduxProviderContext';
 import warnOnCondition from './helpers/warnOnCondition';
 
+/**
+ * TODO: fix children types
+ */
 type Props =
   | $ReadOnly<{|
-      children : Node | Node[],
+      children : any,
       store : Store<any, Action>,
     |}>
   | $ReadOnly<{|
-      children : Node | Node[],
+      children : any,
       stores : ReduxStoreMap,
     |}>;
 
