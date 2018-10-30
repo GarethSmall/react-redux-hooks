@@ -6,7 +6,9 @@ import { useReduxActions } from '../../../src/useReduxActions';
 import { createMockUser, fetchMockUsers } from '../redux/actions.mock';
 
 export function ManageMockUsers() {
-  const { users } = useReduxState();
+  const { users } = useReduxState(state => ({
+    users: state.users
+  }));
   const { createUser, fetchUsers } = useReduxActions({
     createUser: createMockUser,
     fetchUsers: fetchMockUsers,

@@ -14,6 +14,24 @@ function defaultReduxStateFunction(state : Object) : Object {
   return state;
 }
 
+function subscribeToStore(store, selectFn, onChange) {
+  let currentState;
+  return () => {
+    function handleChange() {
+      let nextState = store.getState();
+      if (nextState !== currentState) {
+        currentState = nextState;
+        onChange(nextState);
+      }
+    }
+
+    let unsubscribe = store.subscribe(handleChange);
+
+    handleChange();
+
+    return unsubscribe;
+  };
+}
 /**
  * Access state within a redux store housed in ReduxProviderContext
  * @param storeKey
@@ -38,30 +56,15 @@ export function useReduxState(
    * @type {Store<*, Action>}
    */
   const reduxStore : Store<any, Action> = useReduxStore(storeKey);
-
   const selectFn = isInvalid ? defaultReduxStateFunction : stateFn;
-
-  let currentState = reduxStore.getState();
-  let selectedCurrentState = selectFn(currentState);
   /**
    * $FlowFixMe
    */
-  React.useEffect(() => {
-    function handleChange() {
-      let nextState = reduxStore.getState();
-      let selectedNextState = selectFn(nextState);
-      if (selectedNextState !== selectedCurrentState) {
-        currentState = nextState;
-        selectedCurrentState = selectedNextState;
-      }
-    }
+  const [state, setState] = React.useState(reduxStore.getState());
+  /**
+   * $FlowFixMe
+   */
+  React.useEffect(subscribeToStore(reduxStore, selectFn, setState), [reduxStore]);
 
-    let unsubscribe = reduxStore.subscribe(handleChange);
-
-    handleChange();
-
-    return unsubscribe;
-  });
-
-  return selectedCurrentState;
+  return selectFn(state);
 }
