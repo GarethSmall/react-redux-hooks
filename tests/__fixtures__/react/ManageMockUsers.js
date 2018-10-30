@@ -17,8 +17,12 @@ export function ManageMockUsers() {
   return (
     <>
       <input id="username" type="text" value={name} onChange={setName} />
-      <button id="create-users" onClick={() => createUser(name)}>Create User</button>
-      <button id="fetch-users" onClick={fetchUsers}>Fetch Users</button>
+      <button id="create-users" onClick={() => createUser(name)}>
+        Create User
+      </button>
+      <button id="fetch-users" onClick={fetchUsers}>
+        Fetch Users
+      </button>
       <MockUserList users={users} />
     </>
   );

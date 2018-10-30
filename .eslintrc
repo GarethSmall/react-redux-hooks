@@ -1,10 +1,5 @@
 {
   "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
   "env": {
     "browser": true,
     "es6": true,
@@ -22,9 +17,9 @@
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "plugin:jest/recommended",
+    "plugin:flowtype/recommended",
     "prettier/react",
     "prettier/standard",
     "prettier/flowtype"
@@ -37,10 +32,6 @@
     }
   },
   "rules": {
-    "flowtype/require-valid-file-annotation": [
-      2,
-      "always"
-    ],
     "flowtype/no-types-missing-file-annotation": 2,
     "flowtype/space-before-type-colon": [
       2,

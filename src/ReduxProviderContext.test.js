@@ -1,4 +1,7 @@
-import { DefaultReduxStoreKey, ReduxProviderContext } from './ReduxProviderContext';
+import {
+  DefaultReduxStoreKey,
+  ReduxProviderContext,
+} from './ReduxProviderContext';
 
 describe('ReduxProviderContext', () => {
   it('will provide an empty object', () => {
@@ -11,8 +14,8 @@ describe('DefaultReduxStoreKey', () => {
     /**
      * This is a bit redundant, but we should catch this if it changes.
      */
-    expect(DefaultReduxStoreKey.toString()).toEqual(Symbol(
-      'UniqueDefaultReduxStoreKey!',
-    ).toString());
+    expect(DefaultReduxStoreKey.toString()).toEqual(
+      Symbol('UniqueDefaultReduxStoreKey!').toString(),
+    );
   });
 });

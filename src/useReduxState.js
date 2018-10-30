@@ -3,10 +3,7 @@ import type { UniqueReduxStoreKey } from './ReduxProviderContext';
 import type { Action, Store } from 'redux';
 import warnOnCondition from './helpers/warnOnCondition';
 import { useReduxStore } from './useReduxStore';
-/**
- * $FlowFixMe
- */
-import { useEffect } from 'react';
+import React from 'react';
 
 /**
  * TODO: add better typing
@@ -49,7 +46,7 @@ export function useReduxState(
   /**
    * $FlowFixMe
    */
-  useEffect(() => {
+  React.useEffect(() => {
     function handleChange() {
       let nextState = reduxStore.getState();
       let selectedNextState = selectFn(nextState);

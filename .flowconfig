@@ -1,7 +1,7 @@
 [ignore]
 
 [include]
-.*/src/**/*.js
+./src/**/*.js
 node_modules/react
 
 [libs]

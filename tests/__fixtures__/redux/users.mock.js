@@ -18,7 +18,7 @@ export const mockUsersArray : MockUser[] = [
     name: 'Chandler Bing',
   },
   {
-    id:'4',
+    id: '4',
     name: 'Phoebe Buffay',
   },
   {

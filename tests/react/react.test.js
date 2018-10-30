@@ -4,7 +4,6 @@ import ReactTestRenderer from 'react-test-renderer';
 import { MockApp } from '../__fixtures__/react/MockApp';
 const { describe, test, expect } = global;
 
-
 /**
  * Tests:
  */
