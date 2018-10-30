@@ -1,6 +1,6 @@
 {
   "name": "redux-react-hooks",
-  "version": "0.5.8",
+  "version": "0.6.0",
   "description": "React hooks for using redux in react.",
   "main": "dist/lib/redux-react-hooks.js",
   "unpkg": "dist/umd/redux-react-hooks.js",

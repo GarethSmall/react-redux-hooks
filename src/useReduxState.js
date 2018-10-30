@@ -64,7 +64,9 @@ export function useReduxState(
   /**
    * $FlowFixMe
    */
-  React.useEffect(subscribeToStore(reduxStore, selectFn, setState), [reduxStore]);
+  React.useEffect(subscribeToStore(reduxStore, selectFn, setState), [
+    reduxStore,
+  ]);
 
   return selectFn(state);
 }
