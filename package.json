@@ -24,7 +24,8 @@
     "build:rollup": "rollup -c",
     "check": "npm-run-all lint flow prettier:different",
     "build": "npm-run-all build:clean build:rollup build:flow",
-    "build:production": "cross-env NODE_ENV=production npm-run-all build:clean build:rollup build:flow"
+    "build:production": "cross-env NODE_ENV=production npm-run-all build:clean build:rollup build:flow",
+    "docs:generate": "esdoc"
   },
   "jest": {
     "transform": {
@@ -68,6 +69,10 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "cross-env": "^5.2.0",
+    "esdoc": "^1.1.0",
+    "esdoc-flow-type-plugin": "^1.1.0",
+    "esdoc-publish-markdown-plugin": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^5.7.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.1.1",
