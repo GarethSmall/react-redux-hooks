@@ -98,7 +98,7 @@ describe("SomeApp", () => {
   });
 });
 ```
-_In our first example we wrapped <SomeComponent /> in a ReduxProvider, we wont have to do that when testing.
+_In our first example we wrapped <SomeComponent /> in a ReduxProvider, we wont have to do that when testing._
 # Sandbox
 
 https://codesandbox.io/s/r709zvw47o
