@@ -36,7 +36,7 @@ _To implement, you must be using React >=16.7.0-alpha.0, and redux._
 ```js
 /* Import Redux Provider */
 import { ReduxProvider } from 'redux-react-hooks';
-import { userReducer } from '../MyReducers/userReducer.js';
+import { userReducer } from '../MyReducers/userReducer';
 
 /* create your store */
 const store = createStore(userReducer);
@@ -56,6 +56,7 @@ function App() {
 ```js
 /* Import Redux React hooks */
 import { useReduxState, useReduxActions } from 'redux-react-hooks';
+import { createUser } from '../actions/userActions';
 
 function SomeComponent() {
     /* Allows us to access our state */
@@ -84,7 +85,7 @@ _Make sure your NODE_ENV=test_
 /* import mockReduxStore */
 import { mockReduxStore } from 'redux-react-hooks';
 import renderer from 'react-test-renderer'
-import { userReducer } from '../MyReducers/userReducer.js';
+import { userReducer } from '../MyReducers/userReducer';
 
 describe('SomeComponent', () => {
     it('will create user', () => {
