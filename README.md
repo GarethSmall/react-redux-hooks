@@ -2,11 +2,13 @@
 
 Redux React Hooks is an experimental library using an experimental version of react (16.7.0-alpha.0).
 
+https://reactjs.org/docs/hooks-intro.html
+
 # Why?
 
-To learn and have fun of course, and to make life easier for other developers!
+To learn, have fun, and provide a solution to a problem that will help other developers.
 
-I won't be able to do this alone, as one person I can built something that I think will be useful, but it will be up to you to provide feedback to improve redux react hooks.
+I won't be able to do this alone, all feedback is helpful!
 
 # Current todos and goals
 
@@ -31,7 +33,7 @@ _To implement, you must be using React >=16.7.0-alpha.0, and redux._
 2.) To start using redux-react-hooks, you will still have to wrap the components you want to have access to your store within a "ReduxProvider"
 
 
-```
+```js
 /* Import Redux Provider */
 import { ReduxProvider } from 'redux-react-hooks';
 import { userReducer } from '../MyReducers/userReducer.js';
@@ -51,7 +53,7 @@ function App() {
 
 3.) Finally, you can begin using your redux react hooks within your components:
 
-```
+```js
 /* Import Redux React hooks */
 import { useReduxState, useReduxActions } from 'redux-react-hooks';
 
@@ -78,7 +80,7 @@ Before hooks, testing connected components was a pain.
 
 _Make sure your NODE_ENV=test_
 
-```
+```js
 /* import mockReduxStore */
 import { mockReduxStore } from "redux-react-hooks";
 import { userReducer } from '../MyReducers/userReducer.js';
