@@ -24,7 +24,7 @@ describe('react', () => {
     let component = ReactTestRenderer.create(<ManageMockUsers />);
     const button = component.root.find(el => el.props.id === 'fetch-users');
     button.props.onClick();
-    component.update(<MockApp />);
+    component.update(<ManageMockUsers />);
     expect(component.toJSON()).toMatchSnapshot();
     mockReduxStore.teardown();
   });
