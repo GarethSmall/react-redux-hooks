@@ -69,7 +69,7 @@ function SomeComponent() {
     });
 
     actions.createUser('Gareth');
-   ...
+    ...
 }
 ```
 # Testing
@@ -82,20 +82,48 @@ _Make sure your NODE_ENV=test_
 
 ```js
 /* import mockReduxStore */
-import { mockReduxStore } from "redux-react-hooks";
+import { mockReduxStore } from 'redux-react-hooks';
+import renderer from 'react-test-renderer'
 import { userReducer } from '../MyReducers/userReducer.js';
 
-describe("SomeApp", () => {
-  it("will create user", () => {
-      /* create a mock store from a store */
-      const mockStore = mockReduxStore.createStore(createStore(useReducer));
+describe('SomeComponent', () => {
+    it('will create user', () => {
+        /* create a mock store from a store */
+        const mockStore = mockReduxStore.createStore(createStore(useReducer));
 
-      /* Run tests */
-      ...
+        /* Run tests */
+        const component = renderer.create(<SomeComponent />);
 
-      /* teardown mock store */
-      mockStore.teardown();
-  });
+        /* Finds a text input with the id username */
+        const usernameInput = component.root.find(el => el.props.id === 'username');
+        /* Finds a button with the id create-user
+        const button = component.root.find(el => el.props.id === 'create-user');
+
+        /** calls onChange event to set username field */
+        usernameInput.props.onChange({
+            target: {
+                value: 'Gareth'
+            }
+        });
+
+        /** calls the create user action */
+        button.props.onClick();
+
+        /* Re-render component */
+        component.update(<App />);
+
+
+        /* Find a user with the name Gareth
+        const usernameListItem = component.root.find(el => {
+            return el.props.children === "Gareth";
+        });
+
+        /* assert we successfully dispatched an action and our state was update */
+        expect(usernameListItem.props.children).toContain("Gareth");
+
+        /* teardown mock store */
+        mockStore.teardown();
+    });
 });
 ```
 _In our first example we wrapped <SomeComponent /> in a ReduxProvider, we wont have to do that when testing._
