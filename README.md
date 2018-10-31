@@ -110,7 +110,7 @@ describe('SomeComponent', () => {
         button.props.onClick();
 
         /* Re-render component */
-        component.update(<App />);
+        component.update(<SomeComponent />);
 
 
         /* Find a user with the name Gareth
